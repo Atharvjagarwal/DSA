@@ -4,8 +4,9 @@ class Solution {
         int left = 0; 
         int sum = 0;
         int minL = Integer.MAX_VALUE;
+        int right = 0;
 
-        for(int right = 0; right<n; right++){
+        while(right<n){
             sum += nums[right];
 
             while(sum>=target){
@@ -13,7 +14,10 @@ class Solution {
                 sum -= nums[left];
                 left++;
             }
-        }if(minL == Integer.MAX_VALUE){
+            right++;
+        } 
+        
+        if(minL == Integer.MAX_VALUE){
             return 0;
         }else{
             return minL;
