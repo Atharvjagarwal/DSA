@@ -9,16 +9,14 @@ class Solution {
         for(int high = 0; high<n; high++){
             freq.merge(fruits[high], 1, Integer::sum);
 
-            if(freq.size()>2){
+            while(freq.size()>2){
                 freq.put(fruits[low], freq.get(fruits[low])-1);
 
                 if(freq.get(fruits[low]) == 0){
                     freq.remove(fruits[low]);
                 }
-
                 low++;
             }
-
             cap = high-low+1;
             maxF = Math.max(maxF, cap);
         }return maxF;
